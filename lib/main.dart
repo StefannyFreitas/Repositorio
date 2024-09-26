@@ -1,41 +1,77 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
+        title: Text('Meu App'),
       ),
       body: Center(
-        child: Text(
-          'Hello, World!',
+        child: Text('Conteúdo Principal'), // Conteúdo central
+      ),
+      endDrawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.red,
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Perfil',
+                  style: TextStyle(fontSize: 0)), // Ocultar texto
+              onTap: () {
+// Navegar para a página de perfil
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_basket),
+              title: Text('Produtos',
+                  style: TextStyle(fontSize: 0)), // Ocultar texto
+              onTap: () {
+// Navegar para a página de produtos
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_cart),
+              title: Text('Carrinho',
+                  style: TextStyle(fontSize: 0)), // Ocultar texto
+              onTap: () {
+// Navegar para a página do carrinho
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.help),
+              title:
+                  Text('Ajuda', style: TextStyle(fontSize: 0)), // Ocultar texto
+              onTap: () {
+// Navegar para a página de ajuda
+              },
+            ),
+          ],
         ),
       ),
     );
